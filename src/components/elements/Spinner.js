@@ -1,9 +1,13 @@
 import React from 'react';
 
+//Styles
+import { StyledSpinner } from '../styles/StyledSpinner';
+///////////
+
 function Spinner() {
-  
+
   return (
-    <div>Spinner</div>
+    <StyledSpinner />
   )
 }
 

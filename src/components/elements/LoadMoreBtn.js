@@ -1,10 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function LoadMoreBtn() {
-  
+//Styles
+import { StyledLoadMoreBtn } from '../styles/StyledLoadMoreBtn';
+
+function LoadMoreBtn({ text, callback }) {
+
   return (
-    <div>LoadMoreBtn</div>
+    <StyledLoadMoreBtn type="button" onClick={callback}>
+      {text}
+    </StyledLoadMoreBtn>
   )
 }
 
 export default LoadMoreBtn;
+
+LoadMoreBtn.propTypes = {
+  text: PropTypes.string,
+  callback: PropTypes.func
+}

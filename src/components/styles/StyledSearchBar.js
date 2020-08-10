@@ -40,6 +40,7 @@ export const StyledSearchBarContent = styled.div`
     height: 40px;
     color: #fff;
     box-sizing: border-box;
+    display: block;
 
     :focus {
       outline: none;

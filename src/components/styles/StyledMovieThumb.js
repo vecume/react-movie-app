@@ -8,7 +8,7 @@ export const StyledMovieThumb = styled.div`
     transition: all 0.3s;
     object-fit: cover;
     border-radius: 20px;
-
+    box-shadow: 2px 2px 10px black;
     :hover {
       opacity: 0.8;
     }
