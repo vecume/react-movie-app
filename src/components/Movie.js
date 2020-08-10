@@ -30,7 +30,6 @@ function Movie({ movieId }) {
           <Actor key={actor.credit_id} actor={actor} />
         ))}
       </Grid>
-      <Spinner />
     </>
   )
 }
