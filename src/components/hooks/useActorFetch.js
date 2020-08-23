@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { API_URL, API_KEY, IMAGE_BASE_URL, POSTER_SIZE } from "../../config";
+import { API_URL, API_KEY } from "../../config";
 
 function useActorFetch(actorId) {
   const [state, setState] = useState({});
@@ -33,7 +33,7 @@ function useActorFetch(actorId) {
 
   useEffect(() => {
     fetchData();
-  }, [actorId]);
+  }, [actorId, fetchData]);
 
   return [state, loading, error];
 }

@@ -35,7 +35,11 @@ function ActorPage({ actorId }) {
         <h2 className="section-title">IMAGES</h2>
         <Slider {...getSliderSettings(6, 4, 2)}>
           {actor.images.map((img, index) => (
-            <img key={index} src={`${IMAGE_BASE_URL}${POSTER_SIZE}${img}`} />
+            <img
+              key={index}
+              alt={actor.name}
+              src={`${IMAGE_BASE_URL}${POSTER_SIZE}${img}`}
+            />
           ))}
         </Slider>
       </div>

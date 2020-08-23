@@ -52,12 +52,13 @@ function Movie({ movieId }) {
         </Slider>
       </div>
 
-      {movie.video && (
+      {movie.videos && (
         <div className="slider-wrapper">
           <h2 className="section-title">Videos</h2>
           <div className="videos-wrapper">
             {movie.videos.map((video, i) => (
               <iframe
+                title={video.name}
                 src={`https://www.youtube.com/embed/${video.key}`}
                 key={i}
               />
