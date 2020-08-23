@@ -9,10 +9,11 @@ import { StyledMovieThumb } from '../styles/StyledMovieThumb';
 function MovieThumb({ image, movieId, clickable, movieName }) {
 
   return (
-    <StyledMovieThumb>
+    <StyledMovieThumb className={clickable && 'clickable-thumb'}>
       {clickable ? (
-        <Link to={`/${movieId}`} title={movieName}>
-          <img className="clickable" src={image} alt={movieName} />
+        <Link to={`movie/${movieId}`} title={movieName}>
+          <img src={image} alt={movieName} />
+          <h4>{movieName}</h4>
         </Link>
       ) : (
           <img src={image} alt={movieName} />

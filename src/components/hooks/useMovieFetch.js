@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
-import { API_URL, API_KEY } from '../../config'
+import { useState, useEffect, useCallback } from "react";
+import { API_URL, API_KEY, IMAGE_BASE_URL, POSTER_SIZE } from "../../config";
 
 function useMovieFetch(movieId) {
   const [state, setState] = useState({});
@@ -15,19 +15,33 @@ function useMovieFetch(movieId) {
       const result = await (await fetch(endpoint)).json();
       const creditsEndpoint = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
       const creditsResults = await (await fetch(creditsEndpoint)).json();
-      const directors = creditsResults.crew.filter(member => member.job === "Director");
+      const directors = creditsResults.crew.filter(
+        (member) => member.job === "Director"
+      );
+      const imagesEndpoint = `${API_URL}movie/${movieId}/images?api_key=${API_KEY}`;
+      const imagesData = await (await fetch(imagesEndpoint)).json();
+      const images = imagesData.backdrops.map(
+        (image) => `${IMAGE_BASE_URL}${POSTER_SIZE}${image.file_path}`
+      );
+      const videoEndpoint = `${API_URL}movie/${movieId}/videos?api_key=${API_KEY}`;
+      const videos = await (await fetch(videoEndpoint)).json();
+      const similarEndpoint = `${API_URL}movie/${movieId}/similar?api_key=${API_KEY}`;
+      const similarMovies = await (await fetch(similarEndpoint)).json();
 
       setState({
         ...result,
         actors: creditsResults.cast,
-        directors
-      })
-
+        directors,
+        images,
+        videos: videos.results,
+        similarMovies:
+          similarMovies.results.length > 0 ? similarMovies.results : null,
+      });
     } catch (error) {
       setError(true);
       console.log(error);
     }
-    setLoading(false)
+    setLoading(false);
   }, [movieId]);
 
   useEffect(() => {

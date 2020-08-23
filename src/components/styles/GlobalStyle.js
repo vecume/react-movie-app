@@ -7,5 +7,10 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: "Abel", "Arial", sans-serif;
     line-height: 1.5;
+    background: #f6f6f6;
+  }
+  .far-heart {
+    color: #fff;
+    transition: 0.3s ease;
   }
 `;

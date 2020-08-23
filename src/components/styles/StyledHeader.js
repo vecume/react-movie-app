@@ -7,7 +7,7 @@ export const StyledHeader = styled.div`
 
   .header-content {
     max-width: 1280px;
-    min-height: 100px;
+    padding: 30px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,7 +15,7 @@ export const StyledHeader = styled.div`
     box-sizing: border-box;
 
     @media screen and (max-width: 500px) {
-      min-height: 0px;
+      padding: 15px 0;
     }
   }
 `

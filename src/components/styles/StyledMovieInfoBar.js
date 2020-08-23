@@ -15,42 +15,28 @@ export const StyledMovieInfoBar = styled.div`
   .movieinfobar-content {
     max-width: 1280px;
     width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
     margin: 0 auto;
     color: #fff;
   }
 
   .movieinfobar-content-col {
-    float: left;
-    width: 33.33%;
+    width: 250px;
     box-sizing: border-box;
-    padding: 10px 20px 0 0;
+    display: flex;
+    align-items: center;
   }
 
   .movieinfobar-info {
-    padding: 5px 0 0 10px;
-    float: left;
-  }
-
-  .fa-time,
-  .fa-revenue {
-    float: left;
-    margin-top: -4px;
-  }
-
-  .fa-budget {
-    float: left;
-    margin-top: -3px;
+    margin-left: 5px;
   }
 
   @media screen and (max-width: 768px) {
-    .fa-time,
-    .fa-revenue,
-    .fa-budget {
-      display: none;
+    .fa-2x {
+      font-size: 1.5em;
     }
-  }
-
-  @media screen and (max-width: 425px) {
-    font-size: 14px;
   }
 `;

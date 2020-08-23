@@ -9,7 +9,7 @@ function useHomeFetch(searchTerm) {
   async function fetchMovies(endpoint) {
     setError(false);
     setLoading(true);
-
+    console.log(endpoint)
     const isLoadMore = endpoint.search('page') !== -1 ? true : false;
 
     try {

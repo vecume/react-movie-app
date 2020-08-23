@@ -7,12 +7,12 @@ import {
 } from '../styles/StyledGrid.js'
 /////////////////
 
-function Grid({ header, children }) {
-
+function Grid({ header, children, isSlide }) {
+  console.log(children)
   return (
     <StyledGrid>
       <h1>{header}</h1>
-      <StyledGridContent>
+      <StyledGridContent className={isSlide && 'actors-slider'}>
         {children}
       </StyledGridContent>
     </StyledGrid>
@@ -22,5 +22,7 @@ function Grid({ header, children }) {
 export default Grid;
 
 Grid.propTypes = {
-  header: PropTypes.string
+  header: PropTypes.string,
+  children: PropTypes.array,
+  isSlide: PropTypes.bool
 }

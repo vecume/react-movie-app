@@ -52,6 +52,7 @@ function Home() {
     setSearchTerm(search);
     fetchMovies(endpoint);
   }
+  console.log(movies);
 
   if (error) return <div>Something went wrong...</div>
   if (!movies[0]) return <Spinner />
@@ -77,12 +78,10 @@ function Home() {
                 : NoImage
             }
             movieId={movie.id}
-            movieName={movie.original_title}
+            movieName={movie.title}
           >
           </MovieThumb>
-        ))
-
-        }
+        ))}
       </Grid>
       {loading && <Spinner />}
       {currentPage < totalPages && !loading && (

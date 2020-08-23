@@ -19,7 +19,9 @@ function Header() {
         <Link to="/">
           <StyledRMDBLogo src={RMDBLogo} alt="rmdb-logo" />
         </Link>
-        <StyledTMDBLogo src={TMDBLogo} alt="tmdb-logo" />
+        <a href="https://www.themoviedb.org" target="_blank">
+          <StyledTMDBLogo src={TMDBLogo} alt="tmdb-logo" />
+        </a>
       </div>
     </StyledHeader>
   )

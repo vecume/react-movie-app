@@ -10,7 +10,7 @@ import { StyledActor } from '../styles/StyledActor';
 function Actor({ actor }) {
 
   return (
-    <StyledActor>
+    <StyledActor href={`/actor/${actor.id}`}>
       <img
         src={
           actor.profile_path
@@ -20,7 +20,7 @@ function Actor({ actor }) {
         alt={actor.name}
       />
       <span className="actor-name">{actor.name}</span>
-      <span className="actor-character">{actor.character}</span>
+      <span title={actor.character} className="actor-character">{actor.character}</span>
     </StyledActor>
   )
 }

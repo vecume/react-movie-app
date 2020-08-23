@@ -1,35 +1,56 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledMovieThumb = styled.div`
-  img {
-    width: 100%;
-    height: auto;
-    /* max-height: 350px; */
-    transition: all 0.3s;
-    object-fit: cover;
-    border-radius: 20px;
+  &.clickable-thumb {
+    padding: 15px;
+    transition: 0.3s;
+    position: relative;
     :hover {
-      opacity: 0.8;
+      background: #fff;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+
+      a {
+        img {
+          filter: brightness(20%);
+        }
+      }
+      button {
+        opacity: 1;
+      }
     }
 
-    /* @media screen and (max-width: 1024px) {
-      height: 300px;
+    a {
+      text-decoration: none;
     }
 
-    @media screen and (max-width: 768px) {
-      height: 350px;
+    h4 {
+      margin: 0;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      color: #000;
+      text-decoration: none;
     }
-
-    @media screen and (max-width: 600px) {
-      max-height: 300px;
+    img {
+      max-width: 100%;
+      height: auto;
+      max-height: 320px;
+      object-fit: cover;
+      transition: 0.3s ease;
     }
+  }
 
-    @media screen and (max-width: 375px) {
-      max-height: 450px;
-    } */
+  &:not(.clickable-thumb) {
+    img {
+      width: 100%;
+      border-radius: 20px;
+    }
+  }
 
-    .clickable {
-      cursor: pointer;
+  .clickable {
+    text-decoration: none;
+    img {
+      border-radius: 0;
     }
   }
 `;
