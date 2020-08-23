@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { POPULAR_BASE_URL } from '../../config';
+import { useState, useEffect } from "react";
+import { POPULAR_BASE_URL } from "../../config";
 
 function useHomeFetch(searchTerm) {
   const [state, setState] = useState({ movies: [] });
@@ -9,31 +9,31 @@ function useHomeFetch(searchTerm) {
   async function fetchMovies(endpoint) {
     setError(false);
     setLoading(true);
-    console.log(endpoint)
-    const isLoadMore = endpoint.search('page') !== -1 ? true : false;
+    const isLoadMore = endpoint.search("page") !== -1 ? true : false;
 
     try {
       const result = await (await fetch(endpoint)).json();
-      setState(prev => ({
+      setState((prev) => ({
         ...prev,
-        movies:
-          isLoadMore
-            ? [...prev.movies, ...result.results]
-            : [...result.results],
+        movies: isLoadMore
+          ? [...prev.movies, ...result.results]
+          : [...result.results],
         heroImage: prev.heroImage || result.results[0],
         currentPage: result.page,
-        totalPages: result.total_pages
-      }))
-
+        totalPages: result.total_pages,
+      }));
     } catch (error) {
       setError(true);
-      console.log(error)
+      console.log(error);
     }
     setLoading(false);
   }
 
   useEffect(() => {
-    if (sessionStorage.homeState) {
+    if (
+      sessionStorage.homeState &&
+      JSON.parse(sessionStorage.homeState).length
+    ) {
       setState(JSON.parse(sessionStorage.homeState));
       setLoading(false);
     } else {
@@ -43,7 +43,7 @@ function useHomeFetch(searchTerm) {
 
   useEffect(() => {
     if (!searchTerm) {
-      sessionStorage.setItem('homeState', JSON.stringify(state));
+      sessionStorage.setItem("homeState", JSON.stringify(state));
     }
   }, [searchTerm, state]);
 
@@ -51,11 +51,10 @@ function useHomeFetch(searchTerm) {
     {
       state,
       loading,
-      error
+      error,
     },
-    fetchMovies
-  ]
+    fetchMovies,
+  ];
 }
-
 
 export default useHomeFetch;

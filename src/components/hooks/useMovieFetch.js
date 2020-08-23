@@ -45,7 +45,7 @@ function useMovieFetch(movieId) {
   }, [movieId]);
 
   useEffect(() => {
-    if (localStorage[movieId]) {
+    if (localStorage[movieId] && JSON.parse(localStorage[movieId]).length) {
       setState(JSON.parse(localStorage[movieId]));
       setLoading(false);
     } else {
