@@ -8,7 +8,7 @@ function Footer() {
   return (
     <StyledFooter>
       <Header />
-      <a href="https://vecume.xyz" target="_blank" rel="noopener noreferrer">
+      <a href="https://vecume.uz" target="_blank" rel="noopener noreferrer">
         &#169; vecume
       </a>
     </StyledFooter>
